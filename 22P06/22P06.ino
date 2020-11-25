@@ -142,18 +142,15 @@ void loop() {
     event_serial = false; // [3133]
     Serial.print("dist_ir:");
     Serial.print(dist_raw);
-    Serial.print("filtered_dist:");
-    Serial.print(filtered_dist);
     Serial.print(",pterm:");
-    Serial.print(pterm);
+    Serial.print(map(pterm,-1000,1000,510,610));
     Serial.print(",duty_target:");
-    Serial.print(duty_target);
+    Serial.print(map(duty_target,1000,2000,410,510));
     Serial.print(",duty_curr:");
-    Serial.print(duty_curr);
-    Serial.print(",duty_filtered:");
-    Serial.print(duty_filtered);
+    Serial.print(map(duty_curr,1000,2000,410,510));
     Serial.println(",Min:100,Low:200,dist_target:255,High:310,Max:410");
-    last_sampling_time_serial = millis(); // [3133] 마지막 serial event 처리 시각 기록
+    last_sampling_time_serial = millis();
+ // [3133] 마지막 serial event 처리 시각 기록
 
   }
 }
